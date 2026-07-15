@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bexley Pizza | Takeaway & Delivery</title>
+  <meta name="description" content="Bexley Pizza takeaway website with menu, opening hours, reviews, and order links." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#111826;
+      --muted:#9aa4b2;
+      --text:#f5f7fb;
+      --brand:#d62828;
+      --brand2:#ffb703;
+      --line:#243041;
+      --soft:#172131;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,sans-serif;
+      background:linear-gradient(180deg,#091018,#0b0f14 30%,#0f1622);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+    .nav{
+      position:sticky;
+      top:0;
+      background:rgba(9,16,24,.82);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:20;
+    }
+    .navin{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 0;
+      gap:16px;
+    }
+    .logo{font-weight:800;letter-spacing:.2px;font-size:1.2rem}
+    .links{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted)}
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--brand),#ff4d4d);
+      font-weight:700;
+    }
+    .hero{padding:56px 0 34px}
+    .grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      background:rgba(255,183,3,.12);
+      color:#ffd166;
+      border:1px solid rgba(255,183,3,.2);
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:.92rem;
+    }
+    .hero h1{
+      font-size:clamp(2.5rem,5vw,4.8rem);
+      line-height:1.02;
+      margin:16px 0;
+    }
+    .hero p{
+      max-width:58ch;
+      color:var(--muted);
+      font-size:1.08rem;
+    }
+    .btns{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+    .btn{
+      padding:13px 18px;
+      border-radius:14px;
+      font-weight:700;
+    }
+    .btn.primary{background:var(--brand)}
+    .btn.secondary{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .panel{
+      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:26px;
+      padding:22px;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .photo{
+      aspect-ratio:1.08;
+      border-radius:20px;
+      background:linear-gradient(135deg,#213041,#111826 60%,#0b0f14);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:24px;
+    }
+    .photo h3{margin:0 0 10px;font-size:1.6rem}
+    .photo p{margin:0;color:var(--muted)}
+    section{padding:26px 0 10px}
+    .sec h2{font-size:1.9rem;margin:0 0 14px}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+    }
+    .card h3{margin:0 0 6px}
+    .card p{margin:0;color:var(--muted)}
+    .menu{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+    .item{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      padding:16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .item b{display:block;margin-bottom:4px}
+    .pill{color:#ffd166}
+    .footer{
+      padding:36px 0 54px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:30px;
+    }
+    .small{font-size:.95rem}
+    .cols{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .hours{display:grid;gap:8px}
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    @media (max-width:900px){
+      .grid,.cards,.menu,.cols{grid-template-columns:1fr}
+      .links{display:none}
+      .hero{padding-top:30px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap navin">
+      <div class="logo">Bexley Pizza</div>
+      <nav class="links">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#hours">Hours</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="#contact">Order Now</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="grid">
+        <div>
+          <div class="badge">Takeaway • Delivery • Freshly Made</div>
+          <h1>Classic pizza, generous toppings, fast service.</h1>
+          <p>Bexley Pizza serves crowd-pleasing pizzas, pasta, salads, meals, and sides from 386 Forest Rd, Bexley. Built for hungry locals who want a simple way to order and enjoy great comfort food.</p>
+          <div class="btns">
+            <a class="btn primary" href="#menu">View Menu</a>
+            <a class="btn secondary" href="#contact">Call & Directions</a>
+          </div>
+        </div>
+        <div class="panel photo">
+          <div>
+            <h3>Bexley Pizza</h3>
+            <p>Mobile-first website design for takeaway customers</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="about">
+      <h2>Why customers order here</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Popular favourites</h3>
+          <p>Supreme, Margherita, Americana, Chicken Avocado, and Prawn Deluxe are strong menu highlights.</p>
+        </div>
+        <div class="card">
+          <h3>Full meal options</h3>
+          <p>Alongside pizza, the menu includes pasta, salads, entrees, meals, and drinks.</p>
+        </div>
+        <div class="card">
+          <h3>Quick ordering</h3>
+          <p>Clear buttons, simple navigation, and strong calls to action keep orders moving.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="menu">
+      <h2>Featured menu</h2>
+      <div class="menu">
+        <div class="item">
+          <div><b>Supreme Pizza</b><span>Loaded classic favourite</span></div>
+          <div class="pill">Popular</div>
+        </div>
+        <div class="item">
+          <div><b>Margherita Pizza</b><span>Simple tomato and cheese</span></div>
+          <div class="pill">Classic</div>
+        </div>
+        <div class="item">
+          <div><b>Americana Pizza</b><span>Hearty traditional option</span></div>
+          <div class="pill">Best seller</div>
+        </div>
+        <div class="item">
+          <div><b>Chicken Avocado Pizza</b><span>Gourmet style topping combo</span></div>
+          <div class="pill">Gourmet</div>
+        </div>
+        <div class="item">
+          <div><b>Prawn Deluxe Pizza</b><span>Seafood favourite</span></div>
+          <div class="pill">Premium</div>
+        </div>
+        <div class="item">
+          <div><b>Garlic Bread</b><span>Perfect side for sharing</span></div>
+          <div class="pill">Side</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec cols" id="hours">
+      <div>
+        <h2>Opening hours</h2>
+        <div class="panel hours">
+          <div class="row"><span>Sunday</span><span>5:00 pm - 9:40 pm</span></div>
+          <div class="row"><span>Monday</span><span>2:55 pm - 9:40 pm</span></div>
+          <div class="row"><span>Tuesday</span><span>5:00 pm - 9:00 pm</span></div>
+          <div class="row"><span>Wednesday - Saturday</span><span>5:00 pm - 9:40 pm</span></div>
+        </div>
+      </div>
+      <div id="contact">
+        <h2>Contact</h2>
+        <div class="panel">
+          <p><b>Address:</b> 386 Forest Rd, Bexley, New South Wales 2207</p>
+          <p><b>Phone:</b> +61 2 9597 2536</p>
+          <p><b>Ordering:</b> Add your delivery platform links or online ordering button here.</p>
+          <p><b>Review score:</b> 4.0 on Google in your screenshots, and 4.6 on Uber Eats listings.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap small">© 2026 Bexley Pizza. Designed for takeaway, pickup, and delivery.</div>
+  </footer>
+</body>
+</html>
